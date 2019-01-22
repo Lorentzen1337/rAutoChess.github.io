@@ -15,7 +15,7 @@
 <body>
 	<nav class="controlList">
 		<div id="controls">
-			<h1 style="text-transform: none;"><a style="color: inherit;" href="https://reddit.com/r/AutoChess" target="_blank">r/AUTOCHESS</a> TIER LIST CREATOR <baby>v1.2</baby></h1>
+			<h1 style="text-transform: none;"><a style="color: inherit;" href="https://reddit.com/r/AutoChess" target="_blank">r/AUTOCHESS</a> TIER LIST CREATOR <baby>v1.3</baby></h1>
 			<div id="buttons">
 				<button id="screenshot">Share & Import</button>
 				<!-- <button id="game">Change Game</button> -->
@@ -67,6 +67,10 @@
 	
 	<div id="char" class="sort">
 		<div>If no characters are loaded here, clicking "Reset List" should fix it.</div>
+	</div>
+
+	<div id="characterHighlight">
+		<span id="characterHighlightName">Abaddon</span>
 	</div>
 	
 	<div id="overlay">
@@ -140,6 +144,7 @@
 				<p style="text-align: center;">Your image should appear above. If not, give it a moment or try opening this again.</p>
 			<textarea id="exportcode" cols="30" rows="8"></textarea><div style="padding: 10px;"><button id="runCode">Import Tier List</button></div>
 			</div>
+
 		</div>
 	</div>
 	<script src="https://code.pxdn.cloud/jquery/1.11.1/jquery-1.11.1.min.js"></script>
@@ -154,18 +159,21 @@
 				// return console.log("invalid target");
 			}
 		}).on('drag', function(el, source) {
-        		$("body").css("touch-action", "none");
+        $("body").css("touch-action", "none");
+     		$("#characterHighlight").css("display", "none");
     		$(document).on('touchstart', function(e) {
     	});
     	}).on("drop", function() {
-			// localStorage.setItem("TierListCreatorCode",toCode());
-			$("body").css("touch-action", "pan-y");
+     		$("#characterHighlight").css("display", "none");
+				localStorage.setItem("TierListCreatorCode",toCode());
+				$("body").css("touch-action", "pan-y");
 		});
 		
 		// character images
 		var singleChar = "<div class='character'></div>";
 		// var gameSmash4 = ["ssb4","mario","luigi","peach","bowser","yoshi","rosalinaluma","bowserjr","wario","donkeykong","diddykong","mrgamewatch","littlemac","link","zelda","sheik","ganondorf","toonlink","samus","zerosuitsamus","pit","palutena","marth","ike","robin","duckhunt","kirby","kingdedede","metaknight","fox","falco","pikachu","charizard","lucario","jigglypuff","greninja","rob","ness","captainfalcon","villager","olimar","wiifittrainer","shulk","drmario","darkpit","lucina","pacman","megaman","sonic","mewtwo","lucas","roy","ryu","cloud","corrin","bayonetta","miibrawler1","miigunner1","miisword1","miibrawler","miigunner","miisword"];
-		var gameDAC = ["dac", "abaddon", "alchemist", "antim", "axe", "batr", "beastm", "bountyh", "chaosk", "clockw", "crystalm", "disruptor", "doom", "dragonk", "drowr", "enchant", "engima", "furion", "gyroc", "juggernaut", "keeperotl", "kunkka", "lich", "lina", "loned", "luna", "lycan", "medusa", "necrophos", "ogrem", "omnik", "phantoma", "puck", "queenop", "razor", "sandk", "shadowf", "shadows", "slardar", "slark", "sniper", "techies", "templara", "tidehunter", "timbersaw", "tinker", "treantp", "trollwl", "tusk", "venomancer", "viper", "windranger", "witchd"]
+		var gameDAC = ["dac", "abaddon", "alchemist", "antim", "axe", "batr", "beastm", "bountyh", "chaosk", "clockw", "crystalm", "disruptor", "doom", "dragonk", "drowr", "enchant", "engima", "furion", "gyroc", "juggernaut", "keeperotl", "kunkka", "lich", "lina", "loned", "luna", "lycan", "medusa", "necrophos", "ogrem", "omnik", "phantoma", "puck", "queenop", "razor", "sandk", "shadowf", "shadows", "slardar", "slark", "sniper", "techies", "templara", "tidehunter", "timbersaw", "tinker", "treantp", "trollwl", "tusk", "venomancer", "viper", "windranger", "witchd"];
+		var dacNames = ["Dota Auto Chess", "Abaddon", "Alchemist", "Anti-Mage", "Axe", "Batrider", "Beastmaster", "Bounty Hunter", "Chaos Knight", "Clockwerk", "Crystal Maiden", "Disruptor", "Doom", "Dragon Knight", "Drow Ranger", "Enchantress", "Enigma", "Furion", "Gyrocopter", "Juggernaut", "Keeper of the Light", "Kunkka", "Lich", "Lina", "Lone Druid", "Luna", "Lycan", "Medusa", "Necrophos", "Ogre Magi", "Omniknight", "Phantom Assassin", "Puck", "Queen of Pain", "Razor", "Sand King", "Shadow Fiend", "Shadow Shaman", "Slardar", "Slark", "Sniper", "Techies", "Templar Assassin", "Tidehunter", "Timbersaw", "Tinker", "Treant Protector", "Troll Warlord", "Tusk", "Venomancer", "Viper", "Windranger", "Witch Doctor"];
 		var gameSSB4Renders = ["ssb4r","mario","luigi","peach","bowser","yoshi","rosalinaluma","bowserjr","wario","donkeykong","diddykong","mrgamewatch","littlemac","link","zelda","sheik","ganondorf","toonlink","samus","zerosuitsamus","pit","palutena","marth","ike","robin","duckhunt","kirby","kingdedede","metaknight","fox","falco","pikachu","charizard","lucario","jigglypuff","greninja","rob","ness","captainfalcon","villager","olimar","wiifittrainer","shulk","drmario","darkpit","lucina","pacman","megaman","sonic","mewtwo","lucas","roy","ryu","cloud","corrin","bayonetta","miibrawler1","miigunner1","miisword1","miibrawler","miigunner","miisword"];
 		var gameMelee = ["melee","drmario","mario","luigi","bowser","peach","yoshi","dk","falcon","ganon","falco","fox","ness","icies","kirby","samus","zelda","sheik","link","ylink","pichu","pikachu","jigglypuff","mewtwo","gnw","marth","roy"];
 		var game64 = ["64","luigi","mario","dk","link","samus","falcon","ness","yoshi","kirby","fox","pikachu","jigglypuff"];
@@ -239,6 +247,24 @@
 			$("#overlay").css("visibility", "visible");
 			$("#modal").css("top",alignPopup($("#modal")));
 		});
+
+
+		$(document).on("mouseenter", ".character", function(event) { // individual character hover
+			var el = event.toElement;
+			var coords = el.getBoundingClientRect();
+			var nameLength = dacNames[el.id].length;
+			
+			$("#characterHighlightName").html(dacNames[el.id]);
+			$("#characterHighlight").css("display", "inline-block");
+
+			var nameBox = document.getElementById("characterHighlight").getBoundingClientRect();
+			$("#characterHighlight").css("top", coords.y - 22);
+			$("#characterHighlight").css("left", coords.x + coords.width / 2 - nameBox.width / 2);
+
+		}).on("mouseleave", ".character", function(event) {
+			var el = event.toElement;
+			$("#characterHighlight").css("display", "none");
+		});
 		
 		$(document).on("click", "#game", function() { // open game changer modal
 			$("#gameChange").css("display","block");
@@ -246,7 +272,7 @@
 			$("#overlay").css("visibility", "visible");
 			$("#gameChange").css("top",alignPopup($("#gameChange")));
 		});
-		
+
 		$(document).on("click", "#help", function() { // open help modal
 			$("#helpMenu").css("display","block");
 			$("#overlay").css("opacity", 1);
