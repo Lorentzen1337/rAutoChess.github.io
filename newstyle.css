@@ -162,6 +162,13 @@ baby {
 	vertical-align: super;
 }
 
+#version {
+	cursor: pointer;
+}
+#version:after {
+	vertical-align: super;
+	content: "*";
+}
 
 .controlList {
 	background-image: url(img/background.jpg);
@@ -275,11 +282,11 @@ img {
 	transition: opacity .3s;
 }
 
-#modal, #gameChange, #screenshotShow, #helpMenu {
+#modal, #gameChange, #screenshotShow, #helpMenu, #patchNotes {
 	border-radius: 5px;
 }
 
-#overlay #modalWrapper #modal,#gameChange,#helpMenu,#screenshotShow {
+#overlay #modalWrapper #modal,#gameChange,#helpMenu,#screenshotShow, #patchNotes {
 	position: relative;
 	display:none;
 	width: 728px;
@@ -313,13 +320,44 @@ canvas {
 	max-width: 90% !important;
 }
 
+.sharebox {
+	display: inline-block;
+	/* width: 100%; */
+}
+.tblabel {
+	display: block;
+	padding-bottom: 5px;
+}
+
+#importexport {
+	/* margin: 0 auto; */
+	/* text-align: left; */
+}
+.importexportbtn {
+	display: block;
+	margin: 0 auto;
+}
+
+#sharelink {
+	/* margin: 0 auto; */
+	/* text-align: right; */
+}
+
 #screenshotShow p {
 	padding: 10px;
 	text-align: left;
 }
 
 #exportcode {
-	width: 30%;
+	/* width: 40%; */
+	height: 10%;
+	text-align: center;
+	border-radius: 5px;
+	resize: none;
+}
+
+#exportlink {
+	/* width: 40%; */
 	height: 10%;
 	text-align: center;
 	border-radius: 5px;
@@ -334,6 +372,20 @@ canvas {
 
 #helpMenu {
 	text-align: left;
+}
+
+
+
+#patchNotes {
+	text-align: left;
+}
+
+#patchNotes > dl > dd {
+	font-size: 0.85em;	
+}
+
+#patchNotes > dl > dd:before {
+	content: "- ";
 }
 
 #colorselect {
@@ -406,9 +458,13 @@ button:active {
 }
 */
 @media (max-width: 425px) {
+	#controls > h1 {
+		font-size: 1.2em;
+	}
 	#screenshotShow  {
 		display: block;
-    	width: 80%;
+		width: 80%;
+		top: 5vh !important;
 	}
 	#screenshotShow  canvas {
     	width: 50%;
@@ -418,6 +474,10 @@ button:active {
 	}
 	#help {
 		display: none;
+	}
+	#patchNotes {
+		top: 5vh !important;
+		width: 80%;
 	}
 }
 
