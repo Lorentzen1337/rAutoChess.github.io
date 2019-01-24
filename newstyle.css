@@ -348,6 +348,19 @@ canvas {
 	text-align: left;
 }
 
+#tierTitle {
+	font-style: italic;
+	font-weight: 600;
+	text-align: center;
+	margin: 0 auto;
+	width: fit-content;
+	padding-bottom: 24px;
+	cursor: pointer;
+}
+#tierTitle:hover {
+	color: #51bff0;
+}
+
 #exportcode {
 	/* width: 40%; */
 	height: 10%;

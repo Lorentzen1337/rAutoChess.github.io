@@ -10,14 +10,14 @@
 	<meta charset="utf-8"/>
 	<meta content='width=device-width, initial-scale=1' name='viewport'/>
 	<meta name="description" content="Create tier lists for Dota Auto Chess"/>
-	<meta name="keywords" content="tier list creator, tier list, tier list maker, esports, gaming, games, fighting games, big anime tiddies, so big it's scary, like way too big">
+	<meta name="keywords" content="tier list creator, tier list, tier list maker, esports, gaming, games, big anime tiddies, so big it's scary, like way too big">
 </head>
 <body>
 	<nav class="controlList">
 		<div id="controls">
-			<h1 style="text-transform: none;"><a style="color: inherit;" href="https://reddit.com/r/AutoChess" target="_blank">r/AUTOCHESS</a> TIER LIST CREATOR <baby id="version">v1.5</baby></h1>
+			<h1 style="text-transform: none;"><a style="color: inherit;" href="https://reddit.com/r/AutoChess" target="_blank">r/AUTOCHESS</a> TIER LIST CREATOR <baby id="version">v1.6</baby></h1>
 			<div id="buttons">
-				<button id="screenshot">Import/Share</button>
+				<button id="screenshot">Share / Import</button>
 				<!-- <button id="game">Change Game</button> -->
 				<button id="hidebuttons">Hide Controls</button>
 				<button id="reset">Reset List</button>
@@ -26,51 +26,53 @@
 		</div>
 	</nav>
 
+	<div id="Editor">
+		<div id="tablewrap"><div class="tablePadding"><table><tbody>
+			<h1 id="tierTitle">New Tier List</h1>
+			<tr>
+				<td class="labelHolder" contenteditable="true"><span class="label">S</span></td>
+				<td><div class="tier sort" id="rows"></div></td>
+				<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
+			</tr>
+			<tr>
+				<td class="labelHolder" contenteditable="true"><span class="label">S</span></td>
+				<td><div class="tier sort" id="rows"></div></td>
+				<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
+			</tr>
+			<tr>
+				<td class="labelHolder" contenteditable="true"><span class="label">A</span></td>
+				<td><div class="tier sort" id="rows"></div></td>
+				<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
+			</tr>
+			<tr>
+				<td class="labelHolder" contenteditable="true"><span class="label">B</span></td>
+				<td><div class="tier sort" id="rows"></div></td>
+				<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
+			</tr>
+			<tr>
+				<td class="labelHolder" contenteditable="true"><span class="label">C</span></td>
+				<td><div class="tier sort" id="rows"></div></td>
+				<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
+			</tr>
+			<tr>
+				<td class="labelHolder" contenteditable="true"><span class="label">D</span></td>
+				<td><div class="tier sort" id="rows"></div></td>
+				<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
+			</tr>
+			<tr>
+				<td class="labelHolder" contenteditable="true"><span class="label">E</span></td>
+				<td><div class="tier sort" id="rows"></div></td>
+				<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
+			</tr>
+			<tr>
+				<td class="labelHolder" contenteditable="true"><span class="label">F</span></td>
+				<td><div class="tier sort" id="rows"></div></td>
+				<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
+			</tr>
+		</tbody></table>
+		</div></div>
+	</div>
 
-	<div id="tablewrap"><div class="tablePadding"><table><tbody>
-		<tr>
-			<td class="labelHolder" contenteditable="true"><span class="label">S</span></td>
-			<td><div class="tier sort" id="rows"></div></td>
-			<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
-		</tr>
-		<tr>
-			<td class="labelHolder" contenteditable="true"><span class="label">S</span></td>
-			<td><div class="tier sort" id="rows"></div></td>
-			<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
-		</tr>
-		<tr>
-			<td class="labelHolder" contenteditable="true"><span class="label">A</span></td>
-			<td><div class="tier sort" id="rows"></div></td>
-			<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
-		</tr>
-		<tr>
-			<td class="labelHolder" contenteditable="true"><span class="label">B</span></td>
-			<td><div class="tier sort" id="rows"></div></td>
-			<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
-		</tr>
-		<tr>
-			<td class="labelHolder" contenteditable="true"><span class="label">C</span></td>
-			<td><div class="tier sort" id="rows"></div></td>
-			<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
-		</tr>
-		<tr>
-			<td class="labelHolder" contenteditable="true"><span class="label">D</span></td>
-			<td><div class="tier sort" id="rows"></div></td>
-			<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
-		</tr>
-		<tr>
-			<td class="labelHolder" contenteditable="true"><span class="label">E</span></td>
-			<td><div class="tier sort" id="rows"></div></td>
-			<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
-		</tr>
-		<tr>
-			<td class="labelHolder" contenteditable="true"><span class="label">F</span></td>
-			<td><div class="tier sort" id="rows"></div></td>
-			<td><div id="settings"></div><div id="moveButtons"><div id="moveUp"></div><div id="moveDown"></div></div></td>
-		</tr>
-	</tbody></table>
-	</div></div>
-	
 	<div id="char" class="sort">
 		<div>If no characters are loaded here, clicking "Reset List" should fix it.</div>
 	</div>
@@ -104,16 +106,14 @@
 				<h1>HELP</h1>
 				<p>
 					<dl>
-						<dt>Share & Import &ndash;</dt>
-						<dd>The top half creates a shareable image for your tier list. Simply right-click and choose "Save Image As" to save your tier list. The bottom half gives you a shareable code for an editable version of your tier list. If you have a code, paste it into the box and click "Import Tier List".<br>This will overwrite your current tier list with the one you've imported.</dd>
-						<!-- <dt>Change Game &ndash;</dt> -->
-						<!-- <dd>Allows you to choose a different game. This will overwrite your current tier list.</dt> -->
+						<dt>Share / Import &ndash;</dt>
+						<dd>The top half creates a shareable image for your tier list. Simply right-click and choose "Save Image As" to save your tier list. The bottom half gives you a shareable code and link for an editable version of your tier list. &ndash; If you have a code, paste it into the box and click "Import Tier List". <strong>This will overwrite your current tier list with the one you've imported.</strong></dd>
 						<dt>Hide Controls &ndash;</dt>
 						<dd>Hides the control buttons on the right-side of the creator. Good for mobile!</dd>
 						<dt>Reset List &ndash;</dt>
 						<dd>Clears your entire tier list. Please be sure you want to reset your tier list before clicking.</dd>
 						<dt>Tip: Did you accidentally delete something or reset your tier list?</dt>
-						<dd>Open your web browser's console to see your session's saved tier lists.</dd>
+						<dd>Open your web browser's console to see your tier list's history.</dd>
 					</dl>
 				</p>
 				<h1>ABOUT</h1>
@@ -129,6 +129,10 @@
 				<h1>Patch Notes</h1>
 				<p>
 					<dl>
+						<dt>Version 1.6 &ndash;</dt>
+						<dd>Added the ability to give your tier list a title for screenshots. Does not transfer with share link or share code.</dd>
+						<dd>Fixed big where the share link wouldn't parse properly when used by someone else.</dd>
+						<dd>"Fixed" bug where tier names would import as <strong>undefined</strong> if edited a certain way.</dd>
 						<dt>Version 1.5 &ndash;</dt>
 						<dd>You can now get a shareable link when you hit <strong>Import/Share</strong>.</dd>
 						<dd>Clicking <strong>Rest List</strong> now clears the tier list from the cache as well.</dd>
@@ -192,6 +196,18 @@
 		}
 
 		var singleTier = "<tr><td class='labelHolder' contenteditable='true' style='background-color: " + generateRandomColor() + "'><span class='label'>NEW</span></td><td><div class='tier sort' id='rows'><div class='hiddenkid'></div></div></td><td class='tButtons'><div id='settings'></div></td><td class='tButtons'><div id='moveUp'></div><div id='moveDown'></div></td><td class='tButtons'><div id='addButton'></div><div id='deleteButton'></div></td></div></div></td></tr>";
+		
+		
+		$("#tierTitle").click(function() {
+			var title = $(this);
+			var text = title.text();
+
+			var newTitle = prompt("New tier list title:", text);
+
+			if (newTitle !== null) {
+				title.text(newTitle);
+			}
+		});
 
 		var screenshotMode = false;
 		// first is the row in the table of the tier, second is the index of its color
@@ -337,11 +353,11 @@
 				$("#screenshotShow").css("display","block");
 				$("#overlay").css("opacity", 1);
 				$("#overlay").css("visibility", "visible");
-				window.history.pushState(null, null, "?code=" + encodeURIComponent(toCode()));
+				window.history.pushState(null, null, "?code=" + encodeURL(toCode()));
 				$("#exportlink").val(window.location.href);
 				// $("td:last-of-type").css("display","none");
 				canvas = document.querySelector("canvas");
-				html2canvas(document.querySelector("table"), {canvas: canvas, scale: 1, logging: false})
+				html2canvas(document.querySelector("#Editor"), {canvas: canvas, scale: 1, logging: false})
 				.then(function(canvas){
 					document.body.appendChild(canvas),
 					$("canvas").css("width", "100%");
@@ -415,8 +431,15 @@
 		});
 		
 		$("#labelName").bind("input propertychange", function() {
-			currentTier.find(".label").html($("#labelName").val().replace(/\n/g, "<br>"));
+			currentTier.find(".label").html($("#labelName").val().replace(/\n/g, "<br>").replace(/[<>]/g, ""));
 		});
+
+		// $(document).on("mouseenter", ".labelHolder", function(el) {
+		// 	console.log();
+		// 	if (el.currentTarget.childNodes[0].toString() === "[object HTMLBRElement]") {
+		// 		el.currentTarget.childNodes[0].replaceWith(document.createElement("span").className("label"));
+		// 	}
+		// })
 
 		// http://stackoverflow.com/a/3971432 thanks Zack Katz :D
 		function rgb2hex(rgb) {
@@ -453,8 +476,17 @@
 			}
 		}
 
+		function encodeURL(code) {
+			var converted = code;
+			converted.replace("$", "%24");
+			converted =	encodeURIComponent(converted);
+			return converted;
+		}
+
 		function decodeUrl(code) {
-			if (code === null) { return null }
+			if (code === null || code === undefined) { 
+				return null 
+			}
 			return decodeURIComponent(code);
 		}
 
@@ -476,10 +508,30 @@
 		
 		function toCode() { // format game==label|color|char1|char2|...==label|color|char1|char2|...==...
 			var codeColors = [], labels = [], currentChars = [], shareCode = "";
+			var correctedRowName = "";
 			characters = [];
 			$("tr").each( function() {
 				currentChars = [];
-				labels.push($(this).find(".label").html());
+				var currentRow = parseInt($(this).context.rowIndex.toString());
+				// Fix row being undefined
+				if (currentRow === 0) {
+					correctedRowName = "S";
+				} else if (currentRow === 1) {
+					correctedRowName = "A";
+				} else if (currentRow === 2) {
+					correctedRowName = "B";
+				} else if (currentRow === 3) {
+					correctedRowName = "C";
+				} else if (currentRow === 4) {
+					correctedRowName = "F";
+				} else {
+					correctedRowName = "Tier";
+				}
+			
+				labels.push($(this).find(".label").html() || correctedRowName);
+				// if ($(this).find(".label").html() === "---") {
+				// 	$(this).find(".label") = "test";
+				// }
 				codeColors.push(colors.indexOf(rgb2hex($(this).find(".labelHolder").css("background-color")).toUpperCase()));
 				$(this).find(".character").each( function() {
 					currentChars.push($(this).attr("id"));
@@ -535,6 +587,7 @@
 		function loadDefault() {
 			loadCode("dac==S|5==A|4==B|3==C|1==F|0");
 		}
+			
 
 		function tierlistSize() {
 			if ($("table").width > $("#tablewrap").width)
@@ -551,9 +604,8 @@
 		$("#char").html("<div></div>");
 		$(document).ready( function() {
 			var urlCode = decodeUrl(checkUrl());
-			console.log(urlCode);
 			if (urlCode != null) {
-				console.log("Loading code in url.");
+				console.log("Loading code from url.");
 				loadCode(urlCode);
 			} else {
 				if (localStorage.getItem("TierListCreatorCode") === null) {
