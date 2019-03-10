@@ -263,7 +263,7 @@
 			var coords = el.getBoundingClientRect();
 			var nameLength = dacNames[el.id].length;
 			
-			$("#characterHighlightName").html(dacNames[el.id]);
+			$("#characterHighlightName").text(dacNames[el.id]);
 			$("#characterHighlight").css("display", "inline-block");
 
 			var nameBox = document.getElementById("characterHighlight").getBoundingClientRect();
@@ -426,13 +426,20 @@
 			}
 		});
 
+		function sanitizeHtml(html) {
+			return html.replace(/</g, "&lt;")
+				.replace(/>/g, "&gt;")
+				.replace(/\n/g, "<br>");
+		}
+
 		$("#exportlink").click(function(e) {
 			$(this).select();
 			e.preventDefault();
 		});
 		
 		$("#labelName").bind("input propertychange", function() {
-			currentTier.find(".label").html($("#labelName").val().replace(/\n/g, "<br>").replace(/[<>]/g, ""));
+			var newLabel = sanitizeHtml($("#labelName").val());
+			currentTier.find(".label").html(newLabel);
 		});
 
 		// $(document).on("mouseenter", ".labelHolder", function(el) {
@@ -478,10 +485,8 @@
 		}
 
 		function encodeURL(code) {
-			var converted = code;
-			converted.replace("$", "%24");
-			converted =	encodeURIComponent(converted);
-			return converted;
+			var converted = code.replace("$", "%24").replace("<br>", "\n");
+			return encodeURIComponent(converted);
 		}
 
 		function decodeUrl(code) {
@@ -575,7 +580,7 @@
 			for (var i = 1; i < processedCode.length; i++) {
 				$("tbody").append(singleTier);
 				$("tr:last-of-type").find(".labelHolder").css("background-color",colors[processedCode[i][1]]);
-				$("tr:last-of-type").find(".label").html(processedCode[i][0]);
+				$("tr:last-of-type").find(".label").html(sanitizeHtml(processedCode[i][0]));
 				for (var c = 2; c < processedCode[i].length; c++) {
 					$("tr:last-of-type").find(".tier div:last-child").after(singleChar);
 					$("tr:last-of-type").find(".tier div:last-child").css("background-image","url(img/"+processedCode[0]+"/"+currentGameChars[processedCode[i][c]]+".png)");
