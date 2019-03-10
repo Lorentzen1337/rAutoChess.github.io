@@ -15,7 +15,7 @@
 <body>
 	<nav class="controlList">
 		<div id="controls">
-			<h1 style="text-transform: none;"><a style="color: inherit;" href="https://reddit.com/r/AutoChess" target="_blank">r/AUTOCHESS</a> TIER LIST CREATOR <baby id="version">v1.66</baby></h1>
+			<h1 style="text-transform: none;"><a style="color: inherit;" href="https://reddit.com/r/AutoChess" target="_blank">r/AUTOCHESS</a> TIER LIST CREATOR <baby id="version">v1.67</baby></h1>
 			<div id="buttons">
 				<button id="screenshot">Share / Import</button>
 				<!-- <button id="game">Change Game</button> -->
@@ -126,6 +126,8 @@
 				<h1>Patch Notes</h1>
 				<p>
 					<dl>
+            <dt>Version 1.67 &ndash;</dt>
+            <dd>Fixed issue where character name tags wouldn't appear when hovering (Firefox).</dd>
             <dt>Version 1.66 &ndash;</dt>
             <dd>Added <strong>Riki</strong>, <strong>Death Prophet</strong>, <strong>Mirana</strong>.</dd>
 						<dt>Version 1.65 &ndash;</dt>
@@ -259,19 +261,19 @@
 		});
 
 		$(document).on("mouseenter", ".character", function(event) { // individual character hover
-			var el = event.toElement;
+			var el = event.target;
 			var coords = el.getBoundingClientRect();
 			var nameLength = dacNames[el.id].length;
-			
-			$("#characterHighlightName").text(dacNames[el.id]);
-			$("#characterHighlight").css("display", "inline-block");
+      
+      $("#characterHighlightName").text(dacNames[el.id]);
+      $("#characterHighlight").css("display", "inline-block");
 
-			var nameBox = document.getElementById("characterHighlight").getBoundingClientRect();
+			var nameBox = $("#characterHighlight")[0].getBoundingClientRect();
 			$("#characterHighlight").css("top", coords.y - 22);
 			$("#characterHighlight").css("left", coords.x + coords.width / 2 - nameBox.width / 2);
 
 		}).on("mouseleave", ".character", function(event) {
-			var el = event.toElement;
+			var el = event.target;
 			$("#characterHighlight").css("display", "none");
 		});
 		
@@ -289,7 +291,7 @@
 			$("#helpMenu").css("top",alignPopup($("#helpMenu")));
 		});
 
-		$(document).on("click", "#version", function() { // open help modal
+		$(document).on("click", "#version", function() { // open patch notes modal
 			$("#patchNotes").css("display","block");
 			$("#overlay").css("opacity", 1);
 			$("#overlay").css("visibility", "visible");
@@ -449,7 +451,6 @@
 		// 	}
 		// })
 
-		// http://stackoverflow.com/a/3971432 thanks Zack Katz :D
 		function rgb2hex(rgb) {
 			rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
 			function hex(x) {
