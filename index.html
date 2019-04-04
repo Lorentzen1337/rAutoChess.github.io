@@ -18,7 +18,6 @@
 			<h1 style="text-transform: none;"><a style="color: inherit;" href="https://reddit.com/r/AutoChess" target="_blank">r/AUTOCHESS</a> TIER LIST CREATOR <baby id="version">v1.68</baby></h1>
 			<div id="buttons">
 				<button id="screenshot">Share / Import</button>
-				<!-- <button id="game">Change Game</button> -->
 				<button id="hidebuttons">Hide Controls</button>
 				<button id="reset">Reset List</button>
 				<button id="help">Help</button>
@@ -80,7 +79,7 @@
 	<div id="characterHighlight">
 		<span id="characterHighlightName">Abaddon</span>
 	</div>
-	
+
 	<div id="overlay">
 		<div id="modalWrapper">
 			<div id="modal">
@@ -118,7 +117,7 @@
 				</p>
 				<h1>ABOUT</h1>
 				<span id="close"></span>
-				<p>This is a new and maintained version of the original Smash Tier List Maker created<baby>(?)</baby> by <a href="https://github.com/quetzle">Quetzle</a>. 
+				<p>This is a new and maintained version of the original Smash Tier List Maker created<baby>(?)</baby> by <a href="https://github.com/quetzle">Quetzle</a>.
 					I used to have my own fork of this project a long time ago, but due to hosting trouble and lack of version control, I lost it. But now it's back... with version control and for Dota Auto Chess!
 				</p>
 			</div>
@@ -127,9 +126,9 @@
 				<p>
 					<dl>
 						<dt>Version 1.68 &ndash;</dt>
-						<dd>Added <strong>Mars</strong>, <strong>Zeus</strong>.</dd>
+						<dd>Added <strong>Mars</strong>, <strong>Zeus</strong>. (Thanks Lorentzen1337)</dd>
             <dt>Version 1.67 &ndash;</dt>
-            <dd>Fixed issue where character name tags wouldn't appear when hovering (Firefox).</dd>
+            <dd>Fixed issue where character name tags wouldn't appear when hovering. (Firefox)</dd>
             <dt>Version 1.66 &ndash;</dt>
             <dd>Added <strong>Riki</strong>, <strong>Death Prophet</strong>, <strong>Mirana</strong>.</dd>
 						<dt>Version 1.65 &ndash;</dt>
@@ -187,22 +186,22 @@
 				localStorage.setItem("TierListCreatorCode",toCode());
 				$("body").css("touch-action", "pan-y");
 		});
-		
+
 		// character images
 		var singleChar = "<div class='character'></div>";
 		var gameDAC = ["dac", "abaddon", "alchemist", "antim", "axe", "batr", "beastm", "bountyh", "chaosk", "clockw", "crystalm", "disruptor", "doom", "dragonk", "drowr", "enchant", "engima", "furion", "gyroc", "juggernaut", "keeperotl", "kunkka", "lich", "lina", "loned", "luna", "lycan", "medusa", "morph", "necrophos", "ogrem", "omnik", "phantoma", "puck", "queenop", "razor", "sandk", "shadowf", "shadows", "slardar", "slark", "sniper", "techies", "templara", "terrorblade", "tidehunter", "timbersaw", "tinker", "tiny", "treantp", "trollwl", "tusk", "venomancer", "viper", "windranger", "witchd", "riki", "deathp", "mirana", "zeus", "mars"];
 		var dacNames = ["Dota Auto Chess", "Abaddon", "Alchemist", "Anti-Mage", "Axe", "Batrider", "Beastmaster", "Bounty Hunter", "Chaos Knight", "Clockwerk", "Crystal Maiden", "Disruptor", "Doom", "Dragon Knight", "Drow Ranger", "Enchantress", "Enigma", "Furion", "Gyrocopter", "Juggernaut", "Keeper of the Light", "Kunkka", "Lich", "Lina", "Lone Druid", "Luna", "Lycan", "Medusa", "Morphling", "Necrophos", "Ogre Magi", "Omniknight", "Phantom Assassin", "Puck", "Queen of Pain", "Razor", "Sand King", "Shadow Fiend", "Shadow Shaman", "Slardar", "Slark", "Sniper", "Techies", "Templar Assassin", "Terrorblade", "Tidehunter", "Timbersaw", "Tinker", "Tiny", "Treant Protector", "Troll Warlord", "Tusk", "Venomancer", "Viper", "Windranger", "Witch Doctor", "Riki", "Death Prophet", "Mirana", "Zeus", "Mars"];
 
 		var colors = ["#FF7F7F","#FFBF7F","#FFDF7F","#FFFF7F","#BFFF7F","#7FFF7F","#7FFFFF","#7FBFFF","#7F7FFF","#FF7FFF","#BF7FBF","#3B3B3A","#858585", "#F7F7F7"];
-		
+
 		function generateRandomColor(){
 			randomColor = colors[Math.floor(Math.random() * colors.length)];
 			return randomColor;
 		}
 
 		var singleTier = "<tr><td class='labelHolder' contenteditable='true' style='background-color: " + generateRandomColor() + "'><span class='label'>NEW</span></td><td><div class='tier sort' id='rows'><div class='hiddenkid'></div></div></td><td class='tButtons'><div id='settings'></div></td><td class='tButtons'><div id='moveUp'></div><div id='moveDown'></div></td><td class='tButtons'><div id='addButton'></div><div id='deleteButton'></div></td></div></div></td></tr>";
-		
-		
+
+
 		$("#tierTitle").click(function() {
 			var title = $(this);
 			var text = title.text();
@@ -240,7 +239,7 @@
 		for (var i = 0; i < tierDefaults.length; i++) {
 			tierDefaults[i][0].find(".labelHolder").css("background",colors[tierDefaults[i][1]]);
 		}
-			
+
 		$(document).on("load", function(){
 			generateRandomColor();
 		});
@@ -266,7 +265,7 @@
 			var el = event.target;
 			var coords = el.getBoundingClientRect();
 			var nameLength = dacNames[el.id].length;
-      
+
       $("#characterHighlightName").text(dacNames[el.id]);
       $("#characterHighlight").css("display", "inline-block");
 
@@ -278,7 +277,7 @@
 			var el = event.target;
 			$("#characterHighlight").css("display", "none");
 		});
-		
+
 		$(document).on("click", "#game", function() { // open game changer modal
 			$("#gameChange").css("display","block");
 			$("#overlay").css("opacity", 1);
@@ -308,14 +307,14 @@
 			currentTier.find(".labelHolder").css("background-color",$(this).css("background-color"));
 			updateTiers();
 		});
-		
+
 		$(document).on("click", "#gameChange button", function() { // change game
 			console.log("Game has been changed!");
 			switch($(this).attr("id")) {
 				case "switchDAC": changeGame(gameDAC);break;
 			}
 		});
-			
+
 		$(document).on("click", function(e){
 			clicked = e.target.id;
 			if (clicked == "tr span"){
@@ -440,7 +439,7 @@
 			$(this).select();
 			e.preventDefault();
 		});
-		
+
 		$("#labelName").bind("input propertychange", function() {
 			var newLabel = sanitizeHtml($("#labelName").val());
 			currentTier.find(".label").html(newLabel);
@@ -460,7 +459,7 @@
 			}
 			return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
 		}
-		
+
 		function updateTiers() {
 			tierlist = [];
 			tempTier = currentTier;
@@ -474,7 +473,7 @@
 			}
 			currentTier = tempTier;
 		}
-		
+
 		function checkUrl() {
 			var params = new URLSearchParams(window.location.search);
 			if (params.has('code')) {
@@ -493,8 +492,8 @@
 		}
 
 		function decodeUrl(code) {
-			if (code === null || code === undefined) { 
-				return null 
+			if (code === null || code === undefined) {
+				return null
 			}
 			return decodeURIComponent(code);
 		}
@@ -514,7 +513,7 @@
 			$("h1 span").text(currentGame);
 			updateTiers();
 		}
-		
+
 		function toCode() { // format game==label|color|char1|char2|...==label|color|char1|char2|...==...
 			var codeColors = [], labels = [], currentChars = [], shareCode = "";
 			var correctedRowName = "";
@@ -536,7 +535,7 @@
 				} else {
 					correctedRowName = "Tier";
 				}
-			
+
 				labels.push($(this).find(".label").html() || correctedRowName);
 				// if ($(this).find(".label").html() === "---") {
 				// 	$(this).find(".label") = "test";
@@ -563,7 +562,7 @@
 			console.log(shareCode);
 			return shareCode;
 		}
-		
+
 		function loadCode(code) {
 			var codeSplit = [], tempTier = [], processedCode = [];
 			codeSplit = code.split("==");
@@ -596,7 +595,7 @@
 		function loadDefault() {
 			loadCode("dac==S|5==A|4==B|3==C|1==F|0");
 		}
-			
+
 
 		function tierlistSize() {
 			if ($("table").width > $("#tablewrap").width)
@@ -604,7 +603,7 @@
 			else
 				$("#tablewrap").css("display","block");
 		}
-		
+
 		function alignPopup(popup) {
 			return Math.floor(($(window).height() - popup.height())/ 20)+"vh";
 			// return Math.floor(($(window).height() - popup.height())/2)+"px";
@@ -633,7 +632,7 @@
 		$(window).resize( function () {
 			tierlistSize();
 		})
-		
+
 	</script>
 	<script type="text/javascript">window.onload=loadDefault();</script>
 </body>
